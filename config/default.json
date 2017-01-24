@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/selbyTodos",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "9SxljG9YcP796bm3KOhB2Jj/J6RLIWOa4DCHD9vr8YyZrxXMF7ST6BCnJwRoPjABXNGsyV/UMgUAFWLu9NQvgw=="
+    },
+    "local": {}
+  }
+}

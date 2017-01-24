@@ -1,0 +1,23 @@
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/feathers-client@^1.0.0/dist/feathers.js"></script>
+<script type="text/javascript">
+  var host = 'http://localhost:3030';
+
+  // Set up Feathers client side
+  var app = feathers()
+    .configure(feathers.rest(host).jquery(jQuery))
+    .configure(feathers.hooks())
+    .configure(feathers.authentication({ storage: window.localStorage }));
+
+  // Authenticate. Normally you'd grab these from a login form rather than hard coding them
+  app.authenticate({
+    type: 'local',
+    'email': 'selby.kendrick@gmail.com',
+    'password': 'SecurePassword42'
+  }).then(function(result){
+    console.log('Authenticated!', app.get('token'));
+  }).catch(function(error){
+    console.error('Error authenticating!', error);
+  });
+</script>
